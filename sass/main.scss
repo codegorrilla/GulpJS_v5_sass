@@ -1,0 +1,9 @@
+@use 'partials' as p;
+
+body{
+    background-color: p.$primary;
+
+    @include p.mq(desktop){
+        background-color: red;
+    }
+}

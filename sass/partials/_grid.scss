@@ -1,0 +1,51 @@
+@use 'mixins' as *;
+
+.row{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+[class^=col-]{
+    flex-basis: 100%;
+}
+
+$columns: 12;
+
+ @include mq(mobile){
+    @for $i from 1 through $columns{
+        .col-sm-#{$i}{
+            flex: 0 0 calc(100% / ($columns / $i));
+        }
+
+        .col-sm-offset-#{$i}{
+            margin-left: calc(100% / ($columns / $i));
+        }
+    }
+}
+
+@include mq(tablet){
+    @for $i from 1 through $columns{
+        .col-md-#{$i}{
+            flex: 0 0 calc(100% / ($columns / $i));
+        }
+
+        .col-md-offset-#{$i}{
+            margin-left: calc(100% / ($columns / $i));
+        }
+    }
+}
+
+@include mq(desktop){
+    @for $i from 1 through $columns{
+        .col-lg-#{$i}{
+            flex: 0 0 calc(100% / ($columns / $i));
+        }
+
+        .col-lg-offset-#{$i}{
+            margin-left: calc(100% / ($columns / $i));
+        }
+    }
+}
+
+
+
